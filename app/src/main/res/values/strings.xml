@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">mobile3</string>
+    <string name="table_number">Введите номер компьютера</string>
+    <string name="dish">Название комплектующего</string>
+    <string name="price">Цена</string>
+    <string name="count">Кол.</string>
+    <string name="order">Заказать</string>
+</resources>
