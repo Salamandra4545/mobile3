@@ -15,7 +15,7 @@ class HelloActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main1)
 
         val button = findViewById<Button>(R.id.button)
-        val resultText = findViewById<TextView>(R.id.result);
+        val resultText = findViewById<TextView>(R.id.total_result);
 
 
 
@@ -23,7 +23,7 @@ class HelloActivity : AppCompatActivity() {
         var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data;
-                this.setResultTextOnStatusOK(resultText, data?.getIntExtra("altitude", 0) ?: 0);
+                this.setResultTextOnStatusOK(resultText, data?.getDoubleExtra("sum", 0.0) ?: 0.0);
             }
 
             if (result.resultCode == Activity.RESULT_CANCELED) {
@@ -39,7 +39,7 @@ class HelloActivity : AppCompatActivity() {
 
     }
 
-    private fun setResultTextOnStatusOK(entity: TextView, value: Int): Unit {
+    private fun setResultTextOnStatusOK(entity: TextView, value: Double): Unit {
         entity.text = "Результат: $value";
         entity.visibility = View.VISIBLE;
         return;
